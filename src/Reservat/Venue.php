@@ -1,4 +1,4 @@
-<?
+<?php
 
 namespace Reservat;
 
@@ -7,109 +7,132 @@ use Reservat\Interfaces\VenueInterface;
 
 class Venue implements VenueInterface, EntityInterface
 {
+    protected $name = null;
+    protected $description = null;
+    protected $telephone = null;
+    protected $postcode = null;
+    protected $latitude = null;
+    protected $longitude = null;
+    protected $slotInterval = null;
+    protected $occupiedTime = null;
+    protected $openingTimes = null;
+    
+    public function __construct($name, $description, $telephone, $postcode, $latitude, $longitude, $slotInterval, $occupiedTime)
+    {
+        $this->name = $name;
+        $this->description = $description;
+        $this->telephone = $telephone;
+        $this->postcode = $postcode;
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
+        $this->slotInterval = $slotInterval;
+        $this->occupiedTime = $occupiedTime;
+    }
 
-	protected $_name = null;
-	protected $_description = null;
-	protected $_telephone = null;
-	protected $_email = null;
-	protected $_password = null;
-	protected $_lastLogin = null;
-	protected $_postcode = null;
-	protected $_latitude = null;
-	protected $_longitude = null;
-	protected $_slotInterval = null;
-	protected $_occupiedTime = null;
-	protected $_openingTimes = null;
+    public function getName()
+    {
+        return $this->name;
+    }
 
-	public function __construct($name, $description, $telephone, $email, $password, $lastLogin, $postcode, $latitude, $longitude, $capacity, $slotInterval, $occupiedTime)
-	{
-		$this->_name = $name;
-		$this->_description = $description;
-		$this->_telephone = $telephone;
-		$this->_email = $email;
-		$this->_password = $password;
-		$this->_lastLogin = $lastLogin;
-		$this->_postcode = $postcode;
-		$this->_latitude = $latitude;
-		$this->_longitude = $longitude;
-		$this->_slotInterval = $slotInterval;
-		$this->_occupiedTime = $occupiedTime;
-	}
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 
-	public function getName()
-	{
-		return $this->_name;
-	}
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
-	public function getDescription()
-	{
-		return $this->_description;
-	}
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
 
-	public function getTelephoneNumber()
-	{
-		return $this->_telephoneNumber;
-	}
+    public function getTelephoneNumber()
+    {
+        return $this->telephone;
+    }
 
-	public function getEmailAddress()
-	{
-		return $this->_email;
-	}
+    public function setTelephoneNumber($telephoneNumber)
+    {
+        $this->telephone = $telephoneNumber;
+    }
 
-	public function getPassword()
-	{
-		return $this->_password;
-	}
+    public function getEmailAddress()
+    {
+        return $this->email;
+    }
 
-	public function getLastLogin()
-	{
-		return $this->_lastLogin;
-	}
+    public function setEmailAddress($email)
+    {
+        $this->email = $email;
+    }
 
-	public function getPostcode()
-	{
-		return $this->_postcode;
-	}
+    public function getPostcode()
+    {
+        return $this->postcode;
+    }
 
-	public function getLatLng()
-	{
-		return ['lat' => $this->_latitude, 'lng' => $this->_longitude];
-	}
+    public function setPostcode($postcode)
+    {
+        $this->postcode = $postcode;
+    }
 
-	public function getSlotInterval()
-	{
-		return $this->_slotInterval;
-	}
+    public function getLatLng()
+    {
+        return ['lat' => $this->latitude, 'lng' => $this->longitude];
+    }
 
-	public function getOccupiedTime()
-	{
-		return $this->_occupiedTime;
-	}
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+    }
 
-	public function getOpeningTimes()
-	{
-		if(!$this->_openingTimes){
-			
-		}
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+    }
 
-		return $this->_openingTimes;
-	}
+    public function getSlotInterval()
+    {
+        return $this->slotInterval;
+    }
 
-	public function toArray()
-	{
-		return [
-			'name' => $this->_name,
-			'description' => $this->_description,
-			'email' => $this->_email,
-			'password' => $this->_email,
-			'lastLogin' => $this->_lastLogin,
-			'postcode' => $this->_postcode,
-			'latitude' => $this->_latitude,
-			'longitude' => $this->_longitude,
-			'slotInterval' => $this->_slotInterval,
-			'occupiedTime' => $this->_occupiedTime,
-			'openingTimes' => $this->_openingTimes
-		];
-	}
+    public function setSlotInterval($slotInterval)
+    {
+        $this->slotInterval = $slotInterval;
+    }
 
+    public function getOccupiedTime()
+    {
+        return $this->occupiedTime;
+    }
+
+    public function setOccupiedTime($occupiedTime)
+    {
+        $this->occupiedTime = $occupiedTime;
+    }
+
+    public function getOpeningTimes()
+    {
+        if (!$this->openingTimes) {
+        }
+
+        return $this->openingTimes;
+    }
+
+    public function toArray()
+    {
+        return [
+        'name' => $this->name,
+        'description' => $this->description,
+        'telephone' => $this->telephone,
+        'postcode' => $this->postcode,
+        'latitude' => $this->latitude,
+        'longitude' => $this->longitude,
+        'slot_interval' => $this->slotInterval,
+        'occupied_time' => $this->occupiedTime
+        ];
+    }
 }
