@@ -45,7 +45,7 @@ SQL;
         $this->pdo->exec($schema);
 
         // Dependencies
-        $this->mapper = new Reservat\Datamapper\VenueDatamapper($this->pdo);
+        $this->mapper = new \Reservat\Datamapper\VenueDatamapper($this->pdo);
         $this->repo = new \Reservat\Repository\VenueRepository($this->pdo);
     }
 
