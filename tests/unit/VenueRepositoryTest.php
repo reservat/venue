@@ -40,7 +40,7 @@ class VenueRepositoryTest extends \PHPUnit_Framework_TestCase
 SQL;
 
         // DB
-        $this->pdo = new PDO('sqlite::memory:');
+        $this->pdo = new \PDO('sqlite::memory:');
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->pdo->exec($schema);
 
