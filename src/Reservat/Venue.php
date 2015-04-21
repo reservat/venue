@@ -125,14 +125,28 @@ class Venue implements VenueInterface, EntityInterface
     public function toArray()
     {
         return [
-        'name' => $this->name,
-        'description' => $this->description,
-        'telephone' => $this->telephone,
-        'postcode' => $this->postcode,
-        'latitude' => $this->latitude,
-        'longitude' => $this->longitude,
-        'slot_interval' => $this->slotInterval,
-        'occupied_time' => $this->occupiedTime
+	        'name' => $this->name,
+	        'description' => $this->description,
+	        'telephone' => $this->telephone,
+	        'postcode' => $this->postcode,
+	        'latitude' => $this->latitude,
+	        'longitude' => $this->longitude,
+	        'slot_interval' => $this->slotInterval,
+	        'occupied_time' => $this->occupiedTime
         ];
+    }
+
+    public static function createFromArray(array $data)
+    {
+    	return new static (
+    		$data['name'], 
+    		$data['description'], 
+    		$data['telephone'], 
+    		$data['postcode'], 
+    		$data['latitude'], 
+    		$data['longitude'], 
+    		$data['slotInterval'], 
+    		$data['occupiedTime']
+    	);
     }
 }
